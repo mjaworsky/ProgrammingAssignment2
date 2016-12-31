@@ -1,11 +1,14 @@
-makeCacheMatrix <- function(a, b, c, d) {
-newMatrix = matrix( 
-    c(a, b, c, d), 
-    nrow=2, 
-    ncol=2)
-newMatrix
+makeCacheMatrix <- function(x = numeric()) {
+m <- NULL
+set <- function(y) {
+	x <<- y
+	m <<- NULL
+	}
+get <- function() x
+setmatrix <- function(matrix) m <<- matrix
+getmatrix <- function() m
+list(set = set, get = get,
+             setmatrix = setmatrix,
+             getmatrix = getmatrix)
+
 }
-testMatrix <- makeCacheMatrix(1,2,3,4)
-testMatrix
-testMatrix2 <- solve(testMatrix)
-testMatrix2
